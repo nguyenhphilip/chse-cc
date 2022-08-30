@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.14">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Philip Nguyen">
+<meta name="dcterms.date" content="2022-08-30">
+
+<title>CHSE Code Challenge</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="html-cc-code-PN_files/libs/clipboard/clipboard.min.js"></script>
+<script src="html-cc-code-PN_files/libs/quarto-html/quarto.js"></script>
+<script src="html-cc-code-PN_files/libs/quarto-html/popper.min.js"></script>
+<script src="html-cc-code-PN_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="html-cc-code-PN_files/libs/quarto-html/anchor.min.js"></script>
+<link href="html-cc-code-PN_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="html-cc-code-PN_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="html-cc-code-PN_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="html-cc-code-PN_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="html-cc-code-PN_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+<script src="html-cc-code-PN_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="html-cc-code-PN_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#background-and-data" id="toc-background-and-data" class="nav-link active" data-scroll-target="#background-and-data">Background and Data</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#data-exploration-cleaning-and-formatting" id="toc-data-exploration-cleaning-and-formatting" class="nav-link" data-scroll-target="#data-exploration-cleaning-and-formatting">0) Data Exploration, Cleaning, and Formatting</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">1) Summary Statistics</a>
+  <ul class="collapse">
+  <li><a href="#a-total-number-of-providers" id="toc-a-total-number-of-providers" class="nav-link" data-scroll-target="#a-total-number-of-providers">a) Total number of providers</a></li>
+  <li><a href="#b-percentage-of-providers-who-are-female" id="toc-b-percentage-of-providers-who-are-female" class="nav-link" data-scroll-target="#b-percentage-of-providers-who-are-female">b) Percentage of providers who are female</a></li>
+  <li><a href="#c-mean-and-standard-deviation-of-age" id="toc-c-mean-and-standard-deviation-of-age" class="nav-link" data-scroll-target="#c-mean-and-standard-deviation-of-age">c) Mean and standard deviation of age</a></li>
+  </ul></li>
+  <li><a href="#data-extract" id="toc-data-extract" class="nav-link" data-scroll-target="#data-extract">2) Data Extract</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CHSE Code Challenge</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Philip Nguyen </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 30, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="background-and-data" class="level1">
+<h1>Background and Data</h1>
+<blockquote class="blockquote">
+<p>We are conducting a comparative study of the health care workforce in two states: <strong>Idaho and Hawaii</strong>. As part of this study, you are comparing the availability of providers with a primary specialty of <strong>Emergency Medicine (EM) or Obstetrics and Gynecology (OBGYN)</strong> in the two states. To do so, you have obtained a database from a nationwide provider directory.</p>
+<p>Details about the database are provided in the attached data dictionary. Note that providers can declare multiple specialties, but each provider can choose only one primary specialty. For example, a provider might declare both Family Medicine and OBGYN as specializations, but indicate that Family Medicine is their primary specialization. Please provide the code you use to calculate the summary statistics and extract outlined below along with any assumptions you made.</p>
+</blockquote>
+</section>
+<section id="instructions" class="level1">
+<h1>Instructions</h1>
+<blockquote class="blockquote">
+<p>Your role is to validate the NPI (National Provider Identifier) data and prepare an extract for analysis. For this study, your team is interested in <strong>individual physicians only</strong>; do not include organizations in results. Furthermore, exclude all records known to be updated prior to <strong>January 1, 2008</strong>.</p>
+</blockquote>
+<hr>
+</section>
+<section id="data-exploration-cleaning-and-formatting" class="level1 page-columns page-full">
+<h1>0) Data Exploration, Cleaning, and Formatting</h1>
+<p>Before computing any summary statistics, I will explore the data to understand how it is structured and to address any outstanding issues that may affect the computed statistics such as data missingness. First let’s load in the data and look at the first few rows using R.</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load in relevant libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># read in data</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>npi_data <span class="ot">&lt;-</span> vroom<span class="sc">::</span><span class="fu">vroom</span>(<span class="st">"../dataset.csv"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># look at first few rows of data</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>npi_data <span class="sc">%&gt;%</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">"l"</span>, </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="st">"left"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> T, <span class="at">font_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display column-screen-inset">
+
+<table class="table table-striped" style="font-size: 14px; ">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> NPI </th>
+   <th style="text-align:left;"> provider_state </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_1 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_2 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_3 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_4 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_5 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_6 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_7 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_8 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_9 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_10 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_11 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_12 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_13 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_14 </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode_15 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_1 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_2 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_3 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_4 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_5 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_6 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_7 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_8 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_9 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_10 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_11 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_12 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_13 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_14 </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_15 </th>
+   <th style="text-align:left;"> last_updated </th>
+   <th style="text-align:left;"> entity_type </th>
+   <th style="text-align:left;"> provider_gender </th>
+   <th style="text-align:left;"> provider_age </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 1396749347 </td>
+   <td style="text-align:left;"> HI </td>
+   <td style="text-align:left;"> 207N00000X </td>
+   <td style="text-align:left;"> 207N00000X </td>
+   <td style="text-align:left;"> 207N00000X </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> N </td>
+   <td style="text-align:left;"> Y </td>
+   <td style="text-align:left;"> N </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2015-01-27 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> 60 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1124022801 </td>
+   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> 207N00000X </td>
+   <td style="text-align:left;"> 207N00000X </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Y </td>
+   <td style="text-align:left;"> N </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2014-02-05 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> 54 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1801891049 </td>
+   <td style="text-align:left;"> VT </td>
+   <td style="text-align:left;"> 207N00000X </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Y </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2010-07-13 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:left;"> 49 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1801891569 </td>
+   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> 174400000X </td>
+   <td style="text-align:left;"> 207V00000X </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> N </td>
+   <td style="text-align:left;"> Y </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2008-09-02 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:left;"> 47 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1598761306 </td>
+   <td style="text-align:left;"> VT </td>
+   <td style="text-align:left;"> 207V00000X </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Y </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2007-10-22 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:left;"> 45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1215933940 </td>
+   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> 207N00000X </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> Y </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> NA </td>
+   <td style="text-align:left;"> 2007-10-15 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> 54 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Right away we notice that the data are stored in a wide format. Each provider can have multiple medical specialties – up to 15 in this dataset, each separated by an individual medical specialty code in its own column. Additionally, each medical specialty code has a corresponding column that determines whether or not a specialty is the provider’s primary specialty. It will be easier to compute summary statistics later if the data are in a longer format based on these columns, which can be done relatively easily.</p>
+<p>Prior to doing so, let’s get a sense of which columns are potentially missing values using the <code>skim</code> function from the <code>skimr</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>npi_data <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  skimr<span class="sc">::</span><span class="fu">skim</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(skim_type, skim_variable, n_missing) <span class="sc">%&gt;%</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(skim_variable) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">"l"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="st">"center"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> F,  <span class="at">font_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> skim_type </th>
+   <th style="text-align:left;"> skim_variable </th>
+   <th style="text-align:left;"> n_missing </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> entity_type </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_10 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_11 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_12 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_13 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_14 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_15 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_2 </td>
+   <td style="text-align:left;"> 1548 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_3 </td>
+   <td style="text-align:left;"> 1867 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_4 </td>
+   <td style="text-align:left;"> 1945 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_5 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_6 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_7 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_8 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch_9 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_1 </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_10 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_11 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_12 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_13 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_14 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_15 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_2 </td>
+   <td style="text-align:left;"> 1548 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_3 </td>
+   <td style="text-align:left;"> 1867 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_4 </td>
+   <td style="text-align:left;"> 1945 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_5 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_6 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_7 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_8 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> logical </td>
+   <td style="text-align:left;"> HealthcareProviderTaxonomyCode_9 </td>
+   <td style="text-align:left;"> 1966 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Date </td>
+   <td style="text-align:left;"> last_updated </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> numeric </td>
+   <td style="text-align:left;"> NPI </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> numeric </td>
+   <td style="text-align:left;"> provider_age </td>
+   <td style="text-align:left;"> 311 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> provider_gender </td>
+   <td style="text-align:left;"> 311 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> provider_state </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>The bulk of the missing values comes from the columns that indicate the additional specialties a provider might have. No provider IDs (NPI) or last update dates are missing. 311 values are missing for provider age and gender, which may correspond to entities that are organizations rather than individual providers. This may not be an issue since we are only concerned with the latter. Overall there doesn’t appear to be any huge red flags with the data as it stands.</p>
+<p>Let’s now filter the data to include only <strong>individual</strong> providers from <strong>Hawaii or Idaho</strong> that have updated their information since the start of <strong>2008</strong>.</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter by state, entity type, and date of last update</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>HI_ID_wide <span class="ot">&lt;-</span> npi_data <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(provider_state <span class="sc">==</span> <span class="st">"ID"</span> <span class="sc">|</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>           provider_state <span class="sc">==</span> <span class="st">"HI"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(entity_type <span class="sc">==</span> <span class="st">"individual"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">year</span>(last_updated) <span class="sc">&gt;=</span> <span class="dv">2008</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># skim again to check for missingness in date, gender, age</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>HI_ID_wide <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(NPI, last_updated, provider_age, provider_gender) <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  skimr<span class="sc">::</span><span class="fu">skim</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(skim_type, skim_variable, n_missing) <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(skim_variable) <span class="sc">%&gt;%</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">"l"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="st">"center"</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> F,  <span class="at">font_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display column-screen-inset">
+
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> skim_type </th>
+   <th style="text-align:left;"> skim_variable </th>
+   <th style="text-align:left;"> n_missing </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Date </td>
+   <td style="text-align:left;"> last_updated </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> numeric </td>
+   <td style="text-align:left;"> NPI </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> numeric </td>
+   <td style="text-align:left;"> provider_age </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> character </td>
+   <td style="text-align:left;"> provider_gender </td>
+   <td style="text-align:left;"> 0 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Now there are no missing values in age and gender. Let’s now transpose the data into a longer format so that medical specialty and whether or not they are the provider’s primary specialty are contained within two columns rather than split across 30 columns. Then we will filter based on specialty code (include only emergency medicine and OBGYN), and select providers that have either specialty as their primary specialty. This should yield the desired dataset since providers can only list one primary specialty.</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pivot table</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>HI_ID_long <span class="ot">&lt;-</span> HI_ID_wide <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">contains</span>(<span class="st">"HealthcareProvider"</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">".value"</span>, <span class="st">"pair_number"</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_sep =</span> <span class="st">"_"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(HealthcareProviderTaxonomyCode <span class="sc">==</span> <span class="st">"207P00000X"</span> <span class="sc">|</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>           HealthcareProviderTaxonomyCode <span class="sc">==</span> <span class="st">"207V00000X"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(HealthcareProviderPrimaryTaxonomySwitch <span class="sc">==</span> <span class="st">"Y"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># look at first few rows</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>HI_ID_long <span class="sc">%&gt;%</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>pair_number) <span class="sc">%&gt;%</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">"l"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="st">"center"</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> F,  <span class="at">font_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display column-screen-inset">
+
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> NPI </th>
+   <th style="text-align:left;"> provider_state </th>
+   <th style="text-align:left;"> last_updated </th>
+   <th style="text-align:left;"> entity_type </th>
+   <th style="text-align:left;"> provider_gender </th>
+   <th style="text-align:left;"> provider_age </th>
+   <th style="text-align:left;"> HealthcareProviderTaxonomyCode </th>
+   <th style="text-align:left;"> HealthcareProviderPrimaryTaxonomySwitch </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 1801891569 </td>
+   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> 2008-09-02 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:left;"> 47 </td>
+   <td style="text-align:left;"> 207V00000X </td>
+   <td style="text-align:left;"> Y </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1710987664 </td>
+   <td style="text-align:left;"> HI </td>
+   <td style="text-align:left;"> 2009-07-27 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> 61 </td>
+   <td style="text-align:left;"> 207P00000X </td>
+   <td style="text-align:left;"> Y </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1275533184 </td>
+   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> 2014-08-07 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> 49 </td>
+   <td style="text-align:left;"> 207V00000X </td>
+   <td style="text-align:left;"> Y </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1386644318 </td>
+   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> 2012-03-01 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> 51 </td>
+   <td style="text-align:left;"> 207V00000X </td>
+   <td style="text-align:left;"> Y </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1497757223 </td>
+   <td style="text-align:left;"> HI </td>
+   <td style="text-align:left;"> 2011-09-15 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> 62 </td>
+   <td style="text-align:left;"> 207V00000X </td>
+   <td style="text-align:left;"> Y </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1427041730 </td>
+   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> 2016-01-28 </td>
+   <td style="text-align:left;"> individual </td>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> 55 </td>
+   <td style="text-align:left;"> 207P00000X </td>
+   <td style="text-align:left;"> Y </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>We’re left with 505 providers after subsetting the data based on the desired specifications. A quick check also shows that there are no duplicate providers, meaning the pivoting and filtering worked as planned. Let’s now compute the summary statistics.</p>
+</section>
+<section id="summary-statistics" class="level1 page-columns page-full">
+<h1>1) Summary Statistics</h1>
+<blockquote class="blockquote">
+<p>Calculate the following summary statistics for providers with a primary specialty of EM versus OBGYN, in the two states of interest (Hawaii and Idaho). Please present the results in a table.</p>
+<ol type="a">
+<li>Total number of providers</li>
+<li>Percentage of providers who are female</li>
+<li>Mean and standard deviation of age.</li>
+</ol>
+<p>Describe the steps that you take to validate the data and any concerns that you find.</p>
+</blockquote>
+<section id="a-total-number-of-providers" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="a-total-number-of-providers">a) Total number of providers</h2>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>HI_ID_long <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(provider_state) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">Provider State</span><span class="st">`</span> <span class="ot">=</span> provider_state) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">"l"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="st">"center"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> F, <span class="at">font_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display column-screen-inset">
+
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Provider State </th>
+   <th style="text-align:left;"> n </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> HI </td>
+   <td style="text-align:left;"> 256 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> 249 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>In total we have 505 providers: 256 in Hawaii and 249 in Idaho.</p>
+</section>
+<section id="b-percentage-of-providers-who-are-female" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="b-percentage-of-providers-who-are-female">b) Percentage of providers who are female</h2>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>HI_ID_long <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(provider_gender) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> <span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n), <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">Provider Gender</span><span class="st">`</span> <span class="ot">=</span> provider_gender) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">"l"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="st">"center"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> F, <span class="at">font_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display column-screen-inset">
+
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Provider Gender </th>
+   <th style="text-align:left;"> n </th>
+   <th style="text-align:left;"> percentage </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:left;"> 195 </td>
+   <td style="text-align:left;"> 0.39 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> 310 </td>
+   <td style="text-align:left;"> 0.61 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Between Idaho and Hawaii, 39% of emergency medicine or OBGYN primary providers are female. We can also look at the proportions by state:</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>HI_ID_long <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(provider_state, provider_gender) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percentage =</span> <span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n), <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">Provider State</span><span class="st">`</span> <span class="ot">=</span> provider_state,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Provider Gender</span><span class="st">`</span> <span class="ot">=</span> provider_gender) <span class="sc">%&gt;%</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">"l"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="st">"center"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> F, <span class="at">font_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display column-screen-inset">
+
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Provider State </th>
+   <th style="text-align:left;"> Provider Gender </th>
+   <th style="text-align:left;"> n </th>
+   <th style="text-align:left;"> percentage </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> HI </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:left;"> 115 </td>
+   <td style="text-align:left;"> 0.45 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> HI </td>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> 141 </td>
+   <td style="text-align:left;"> 0.55 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> female </td>
+   <td style="text-align:left;"> 80 </td>
+   <td style="text-align:left;"> 0.32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> male </td>
+   <td style="text-align:left;"> 169 </td>
+   <td style="text-align:left;"> 0.68 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>We see that there is a more balanced proportion of gender for emergency medicine or OBGYN primary providers in Hawaii than in Idaho.</p>
+</section>
+<section id="c-mean-and-standard-deviation-of-age" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="c-mean-and-standard-deviation-of-age">c) Mean and standard deviation of age</h2>
+<p>Prior to computing the mean and standard deviation, let’s plot the distribution of age since the mean is sensitive to outlier values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>HI_ID_long <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> provider_age)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Provider Age"</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of Provider Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="html-cc-code-PN_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As the histogram shows, there is a provider that has listed their age to be 1000 years old. If this provider were really 1000 years old, further investigation would be warranted (What is their secret? Perhaps this is a ploy so that the provider receives more patients in the quest for everlasting longevity), but for now, we will filter out any providers over the age of 100 for the sake of computing our mean and standard deviation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>HI_ID_long <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(provider_age <span class="sc">&lt;=</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> provider_age)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Provider Age"</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Updated Distribution of Provider Age"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="html-cc-code-PN_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This looks much better. Let’s now compute the mean and standard deviation.</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>HI_ID_long <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(provider_age <span class="sc">&lt;=</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="st">`</span><span class="at">Mean Provider Age</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(provider_age), <span class="dv">2</span>),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">`</span><span class="at">SD Provider Age</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">sd</span>(provider_age), <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">"l"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="st">"center"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> F, <span class="at">font_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display column-screen-inset">
+
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Mean Provider Age </th>
+   <th style="text-align:left;"> SD Provider Age </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 51.35 </td>
+   <td style="text-align:left;"> 6.24 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>The mean provider age is approximately 51 years old, with a standard deviation of 6.24 years. We can also compute the mean and standard deviation by state:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>HI_ID_long <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(provider_age <span class="sc">&lt;=</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> provider_age, <span class="at">fill =</span> provider_state)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>() <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Provider Age"</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Updated Distribution of Provider Age by State"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="html-cc-code-PN_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>HI_ID_long <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(provider_age <span class="sc">&lt;=</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(provider_state) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="st">`</span><span class="at">Mean Provider Age</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(provider_age), <span class="dv">2</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">`</span><span class="at">SD Provider Age</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">sd</span>(provider_age), <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">`</span><span class="at">Provider State</span><span class="st">`</span> <span class="ot">=</span> provider_state) <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">align =</span> <span class="st">"l"</span>, <span class="at">booktabs =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>),</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">position =</span> <span class="st">"center"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                <span class="at">full_width =</span> F, <span class="at">font_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display column-screen-inset">
+
+<table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Provider State </th>
+   <th style="text-align:left;"> Mean Provider Age </th>
+   <th style="text-align:left;"> SD Provider Age </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> HI </td>
+   <td style="text-align:left;"> 55.05 </td>
+   <td style="text-align:left;"> 5.03 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ID </td>
+   <td style="text-align:left;"> 47.55 </td>
+   <td style="text-align:left;"> 4.94 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<p>Idaho seems to have younger providers with a mean provider age of approximately 47 years old versus 55 in Hawaii, with about the same amount of variation in both states.</p>
+</section>
+</section>
+<section id="data-extract" class="level1">
+<h1>2) Data Extract</h1>
+<blockquote class="blockquote">
+<p>Create an extract from the <strong>dataset.csv</strong> table with all of the records that meet the following criteria: - Have a primary specialty of Emergency Medicine (EM) or Obstetrics &amp; Gynecology (OBGYN) - Practice in the states of Hawaii (HI) or Idaho (ID) - Have a record update of January 1, 2008 and after - Are individual providers (not organizations)</p>
+</blockquote>
+<p>Since we have been working with a filtered dataset that meets the above specification, we can simply use the <code>readr::write_csv()</code> function to create the data extract.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># export filtered data as csv file</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>HI_ID_long <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>pair_number) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_csv</span>(<span class="st">"data_extract.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>That concludes the code challenge!</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
